@@ -5,9 +5,9 @@ public class RailwayReservation {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // Train options with seat capacity
-        int seats = 5;   // total seats available
-        int waiting = 3; // waiting list capacity
+       
+        int seats = 5;   
+        int waiting = 3; 
         int bookedSeats = 0;
         int waitingList = 0;
 
@@ -20,7 +20,7 @@ public class RailwayReservation {
         int choice = sc.nextInt();
         int fare = 0;
 
-        // Switch-case for fare selection
+        
         switch (choice) {
             case 1:
                 fare = 500;
@@ -39,28 +39,28 @@ public class RailwayReservation {
                 fare = 500;
         }
 
-        // Do-while → at least one booking attempt
+        
         char moreBooking;
         do {
             System.out.print("\nEnter number of passengers you want to book: ");
             int numPassengers = sc.nextInt();
 
-            // For loop → process each passenger
+         
             for (int i = 1; i <= numPassengers; i++) {
                 System.out.print("Enter Passenger " + i + " Name: ");
                 String name = sc.next();
 
-                // While seats available → book seat
+              
                 if (bookedSeats < seats) {
                     bookedSeats++;
                     System.out.println("✅ Seat confirmed for " + name + ". Seat No: " + bookedSeats + " | Fare: " + fare);
                 } 
-                // If seats full but waiting available
+                
                 else if (waitingList < waiting) {
                     waitingList++;
                     System.out.println("⚠ " + name + " is on Waiting List. Position: " + waitingList);
                 } 
-                // Train full + waiting list full
+                
                 else {
                     System.out.println("❌ Sorry " + name + ", No seats/waiting list available.");
                 }
